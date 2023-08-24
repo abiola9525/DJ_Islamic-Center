@@ -1,0 +1,335 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <link rel="icon" href="{% static 'images/favicon.png' %}" sizes="35x35" type="image/png">
+        <title>Elenusonso and its Environ Muslim Community</title>
+
+        <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+        <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/jquery.fancybox.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/jquery.bootstrap-touchspin.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/perfect-scrollbar.css' %}">
+        <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+        <link rel="stylesheet" href="{% static 'css/color.css' %}">
+    </head>
+    <body>
+        <main>
+            <div id="preloader">            
+                <div class="preloader-inner">
+                    <i class="preloader-icon thm-clr flaticon-kaaba"></i>
+                </div>
+            </div><!-- Page Loader -->
+            <header class="stick style1 w-100">
+                <div class="topbar bg-color1 d-flex flex-wrap justify-content-center w-100">
+                    <ul class="topbar-info-list mb-0 list-unstyled d-inline-flex">
+                        <li><i class="thm-clr flaticon-sun"></i>Sunrise At: <span class="thm-clr">5:05am</span></li>
+                        <li><i class="thm-clr flaticon-moon"></i>Sunset At: <span class="thm-clr">7:14pm</span></li>
+                    </ul>
+                    <div class="social-links d-inline-flex">
+                        <a href="https://twitter.com/" title="Twtiiter" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.youtube.com/" title="Youtube" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.linkedin.com/" title="Linkedin" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div><!-- Topbar -->
+                <div class="logo-menu-wrap d-flex flex-wrap justify-content-between w-100">
+                    <div class="logo position-relative thm-layer opc7 back-blend-multiply thm-bg" style="background-image: url({% static 'images/pattern-bg.jpg' %});"><h1 class="mb-0"><a href="{% url 'home' %}" title="Home"><img class="img-fluid" src="{% static 'images/logo.png' %}" alt="Logo" srcset="{% static 'images/retina-logo.png' %}"></a></h1></div><!-- Logo -->
+                    <nav class="d-flex flex-wrap align-items-center justify-content-center">
+                        <div class="header-left">
+                            <ul class="mb-0 list-unstyled d-inline-flex">
+                                
+                                <li><a href="{% url 'home' %}" title="">Home</a></li>
+                                <li><a href="{% url 'blog' %}" title="">Blog</a></li>
+                                       
+                                <li class="menu-item-has-children"><a href="javascript:void(0);" title="">Pages</a>
+                                    <ul class="mb-0 list-unstyled">
+                                        <li><a href="scholar-style1.html" title="">Scholar</a></li>
+                                        <li><a href="urgent-donation.html" title="">Urgent Donation</a></li>
+                                        <li><a href="online-courses.html" title="">Online Courses</a></li>
+                                        <li><a href="services.html" title="">Services</a></li>
+                                        <li><a href="gallery.html" title="">Gallery</a></li>
+                                        <li><a href="events.html" title="">Events</a></li>
+                                        <li><a href="sermons.html" title="">Sermons</a></li>
+                                        <li><a href="audio-listening.html" title="">Audio Listening</a></li>
+                                    </ul>
+                                </li>
+                                {% comment %} <li class="menu-item-has-children"><a href="javascript:void(0);" title="">Products</a>
+                                    <ul class="mb-0 list-unstyled">
+                                        <li><a href="products.html" title="">Our Products</a></li>
+                                        <li><a href="product-detail.html" title="">Product Detail</a></li>
+                                        <li><a href="cart.html" title="">Product Cart</a></li>
+                                        <li><a href="checkout.html" title="">Product Checkout</a></li>
+                                    </ul>
+                                </li> {% endcomment %}
+                                <li><a href="{% url 'about' %}" title="">About Us</a></li>
+                                <li><a href="{% url 'contact-us' %}" title="">Contact Us</a></li>
+                            </ul>
+                        </div>
+                        {% if user.is_authenticated %}
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ user.first_name }}
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'password_change' %}">Change password</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'logout' %}">Log out</a>
+              </div>
+            </li>
+          </ul>
+        {% else %}
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Authenticate
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'adult-signup' %}">Adult Registration</a>
+                <a class="dropdown-item" href="{% url 'youth-signup' %}">Youth Registration</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'login' %}">Log in</a>
+              </div>
+            </li>
+          </ul>
+          {% comment %} <form class="form-inline my-2 my-lg-0">
+            <a href="{% url 'login' %}" class="btn btn-outline-secondary">Log in</a>
+            <a href="{% url 'adult-signup' %}" class="btn btn-primary ml-2">Adult Reg</a>
+            <a href="{% url 'youth-signup' %}" class="btn btn-primary ml-2">Youth Reg </a>
+          </form> {% endcomment %}
+        {% endif %}
+                    </nav>
+                </div><!-- Logo Menu Wrap -->
+            </header><!-- Header -->
+            <div class="sticky-menu">
+                <div class="container">
+                    <div class="sticky-menu-inner d-flex flex-wrap align-items-center justify-content-between w-100">
+                        <div class="logo"><h1 class="mb-0"><a href="{% url 'home' %}" title="Home"><img class="img-fluid" src="{% static 'images/logo3.png' %}" alt="Logo" srcset="{% static 'images/retina-logo3.png' %}"></a></h1></div><!-- Logo -->
+                        <nav class="d-flex flex-wrap align-items-center justify-content-between">
+                            <div class="header-left">
+                                <ul class="mb-0 list-unstyled d-inline-flex">
+                                    <li><a href="{% url 'home' %}" title="">Home</a></li>
+                                <li><a href="{% url 'blog' %}" title="">Blog</a></li>
+                                       
+                                <li class="menu-item-has-children"><a href="javascript:void(0);" title="">Pages</a>
+                                    <ul class="mb-0 list-unstyled">
+                                        <li><a href="scholar-style1.html" title="">Scholar</a></li>
+                                        <li><a href="urgent-donation.html" title="">Urgent Donation</a></li>
+                                        <li><a href="online-courses.html" title="">Online Courses</a></li>
+                                        <li><a href="services.html" title="">Services</a></li>
+                                        <li><a href="gallery.html" title="">Gallery</a></li>
+                                        <li><a href="events.html" title="">Events</a></li>
+                                        <li><a href="sermons.html" title="">Sermons</a></li>
+                                        <li><a href="audio-listening.html" title="">Audio Listening</a></li>
+                                    </ul>
+                                </li>
+                                {% comment %} <li class="menu-item-has-children"><a href="javascript:void(0);" title="">Products</a>
+                                    <ul class="mb-0 list-unstyled">
+                                        <li><a href="products.html" title="">Our Products</a></li>
+                                        <li><a href="product-detail.html" title="">Product Detail</a></li>
+                                        <li><a href="cart.html" title="">Product Cart</a></li>
+                                        <li><a href="checkout.html" title="">Product Checkout</a></li>
+                                    </ul>
+                                </li> {% endcomment %}
+                                <li><a href="{% url 'about' %}" title="">About Us</a></li>
+                                <li><a href="{% url 'contact-us' %}" title="">Contact Us</a></li>
+                                    {% if user.is_authenticated %}
+                                    <li class="menu-item-has-children"><a href="javascript:void(0);" title="">{{ user.first_name }}</a>
+                                        <ul class="mb-0 list-unstyled">
+                                            <li><a class="dropdown-item" href="{% url 'password_change' %}">Change password</a></li>
+                                            <div class="dropdown-divider"></div>
+                                            <li><a class="dropdown-item" href="{% url 'logout' %}">Log out</a></li>     
+                                        </ul>
+                                    </li>
+                                      {% else %}
+                                    <li class="menu-item-has-children"><a href="javascript:void(0);" title="">Authenticate</a>
+                                        <ul class="mb-0 list-unstyled">
+                                            <li><a class="dropdown-item" href="{% url 'adult-signup' %}">Adult Registration</a></li>
+                                            <li><a class="dropdown-item" href="{% url 'youth-signup' %}">Youth Registration</a></li>
+                                            <div class="dropdown-divider"></div>
+                                            <li><a class="dropdown-item" href="{% url 'login' %}">Log in</a></li>     
+                                        </ul>
+                                    </li>
+                                    {% endif %}  
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div><!-- Sticky Menu -->
+            <div class="rspn-hdr">
+                <div class="rspn-mdbr">
+                    <div class="rspn-scil">
+                        <a href="https://twitter.com/" title="Twtiiter" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.youtube.com/" title="Youtube" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.linkedin.com/" title="Linkedin" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <form class="rspn-srch">
+                        <input type="text" placeholder="Enter Your Keyword">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+                <div class="lg-mn">
+                    <div class="logo"><a href="{% url 'home' %}" title="Home"><img src="{%static 'images/logo3.png' %}" alt="Logo"></a></div>
+                    <div class="rspn-cnt">
+                        <span><i class="thm-clr far fa-envelope"></i><a href="javascript:void(0);" title="">info@youremailid.com</a></span>
+                        <span><i class="thm-clr fas fa-phone-alt"></i>+96 125 554 24 5</span>
+                    </div>
+                    <span class="rspn-mnu-btn"><i class="fa fa-list-ul"></i></span>
+                </div>
+                <div class="rsnp-mnu">
+                    <span class="rspn-mnu-cls"><i class="fa fa-times"></i></span>
+                    <ul class="mb-0 list-unstyled d-inline-flex">
+                        <li><a href="{% url 'home' %}" title="">Home</a></li>
+                    <li><a href="{% url 'blog' %}" title="">Blog</a></li>
+                           
+                    <li class="menu-item-has-children"><a href="javascript:void(0);" title="">Pages</a>
+                        <ul class="mb-0 list-unstyled">
+                            <li><a href="scholar-style1.html" title="">Scholar</a></li>
+                            <li><a href="urgent-donation.html" title="">Urgent Donation</a></li>
+                            <li><a href="online-courses.html" title="">Online Courses</a></li>
+                            <li><a href="services.html" title="">Services</a></li>
+                            <li><a href="gallery.html" title="">Gallery</a></li>
+                            <li><a href="events.html" title="">Events</a></li>
+                            <li><a href="sermons.html" title="">Sermons</a></li>
+                            <li><a href="audio-listening.html" title="">Audio Listening</a></li>
+                        </ul>
+                    </li>
+                    {% comment %} <li class="menu-item-has-children"><a href="javascript:void(0);" title="">Products</a>
+                        <ul class="mb-0 list-unstyled">
+                            <li><a href="products.html" title="">Our Products</a></li>
+                            <li><a href="product-detail.html" title="">Product Detail</a></li>
+                            <li><a href="cart.html" title="">Product Cart</a></li>
+                            <li><a href="checkout.html" title="">Product Checkout</a></li>
+                        </ul>
+                    </li> {% endcomment %}
+                    <li><a href="{% url 'about' %}" title="">About Us</a></li>
+                    <li><a href="{% url 'contact-us' %}" title="">Contact Us</a></li>
+                        {% if user.is_authenticated %}
+                        <li class="menu-item-has-children"><a href="javascript:void(0);" title="">{{ user.first_name }}</a>
+                            <ul class="mb-0 list-unstyled">
+                                <li><a class="dropdown-item" href="{% url 'password_change' %}">Change password</a></li>
+                                <div class="dropdown-divider"></div>
+                                <li><a class="dropdown-item" href="{% url 'logout' %}">Log out</a></li>     
+                            </ul>
+                        </li>
+                          {% else %}
+                        <li class="menu-item-has-children"><a href="javascript:void(0);" title="">Authenticate</a>
+                            <ul class="mb-0 list-unstyled">
+                                <li><a class="dropdown-item" href="{% url 'adult-signup' %}">Adult Registration</a></li>
+                                <li><a class="dropdown-item" href="{% url 'youth-signup' %}">Youth Registration</a></li>
+                                <div class="dropdown-divider"></div>
+                                <li><a class="dropdown-item" href="{% url 'login' %}">Log in</a></li>     
+                            </ul>
+                        </li>
+                        {% endif %}  
+                    </ul>
+                </div><!-- Responsive Menu -->
+            </div><!-- Responsive Header -->
+            <div class="container  pt-4 mt-5">
+                {% block content %}
+                {% endblock %}
+              </div>
+
+            <footer>
+                <div class="w-100 pt-100 dark-layer pb-50 opc85 position-relative">
+                    <div class="fixed-bg patern-bg back-blend-multiply dark-bg" style="background-image: url({% static 'images/pattern-bg.jpg' %});"></div>
+                    <div class="container">
+                        <div class="footer-data w-100">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-lg-3">
+                                    <div class="widget w-100">
+                                        <div class="logo"><h1 class="mb-0"><a href="{% url 'home' %}" title="Home"><img class="img-fluid" src="{% static 'images/logo2.png' %}" alt="Logo" srcset="{% static 'images/retina-logo2.png' %}"></a></h1></div>
+                                        <p class="mb-0">Lorem ipsum dolor sit amet, coteudtu sicing elit, sed do eiusmod tempor inc dntut labore et adipi.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-lg-9">
+                                    <div class="row justify-content-between">
+                                        <div class="col-md-6 col-sm-6 col-lg-6">
+                                            <div class="row">
+                                                <div class="col-md-6 col-sm-6 col-lg-6">
+                                                    <div class="widget w-100">
+                                                        <h4 class="widget-title">Information</h4>
+                                                        <ul class="mb-0 list-unstyled w-100">
+                                                            <li><a href="online-courses.html" title="">Online Courses</a></li>
+                                                            <li><a href="audio-listening.html" title="">Audio Listening</a></li>
+                                                            <li><a href="{% url 'blog' %}" title="">Our Blog</a></li>
+                                                            <li><a href="events.html" title="">Our Events</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-lg-6">
+                                                    <div class="widget w-100">
+                                                        <h4 class="widget-title">Contact Info</h4>
+                                                        <ul class="cont-info-list2 mb-0 list-unstyled w-100">
+                                                            <li><i class="thm-clr">P:</i>+234 810 244 3683</li>
+                                                            <li><i class="thm-clr">E:</i><a href="javascript:void(0);" title="">oratech9525@gmail.com</a></li>
+                                                            <li>Adejumo Street</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5 col-sm-6 col-lg-5">
+                                            <h4 class="widget-title">Let Us Help You</h4>
+                                            <div class="row">
+                                                <div class="col-md-6 col-sm-6 col-lg-6">
+                                                    <div class="widget w-100">
+                                                        <ul class="mb-0 list-unstyled w-100">
+                                                            <li><a href="{% url 'about' %}" title="">About Us</a></li>
+                                                            <li><a href="urgent-donation.html" title="">Urgent Donation</a></li>
+                                                            <li><a href="services.html" title="">Our Services</a></li>
+                                                            <li><a href="sermons.html" title="">Our Sermons</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-lg-6">
+                                                    <div class="widget w-100">
+                                                        <ul class="mb-0 list-unstyled w-100">
+                                                            <li><a href="products.html" title="">Our Products</a></li>
+                                                            <li><a href="scholar-style1.html" title="">Our Scholars</a></li>
+                                                            <li><a href="{% url 'contact-us' %}" title="">Contact Us</a></li>
+                                                            <li><a href="gallery.html" title="">Gallery</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- Footer Data -->
+                    </div>
+                </div>
+            </footer><!-- Footer -->
+            <div class="bottom-bar dark-bg2 text-center w-100">
+                <p class="mb-0"><a href="{% url 'home' %}" title="Home">Elenusonso and its Environ Islamic Center</a> - Copyright 2022. Design by <a href="https://themeforest.net/user/nauthemes/portfolio" title="Nauthemes" target="_blank">Nauthemes</a></p>
+            </div><!-- Bottom Bar -->
+        </main><!-- Main Wrapper -->
+
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/popper.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/wow.min.js' %}"></script>
+        <script src="{% static 'js/counterup.min.js' %}"></script>
+        <script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+        <script src="{% static 'js/jquery.bootstrap-touchspin.min.js' %}"></script>
+        <script src="{% static 'js/perfect-scrollbar.min.js' %}"></script>
+        <script src="{% static 'js/slick.min.js' %}"></script>
+        <!-- <script src="{% static 'js/particles.min.js' %}"></script>
+        <script src="{% static 'js/particle-int.js' %}"></script> -->
+        <script src="{% static 'js/musicplayer-min.js' %}"></script>
+        <script src="{% static 'js/custom-scripts.js' %}"></script>
+    </body>	
+</html>
